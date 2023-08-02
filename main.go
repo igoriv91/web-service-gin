@@ -1,15 +1,9 @@
 package main
 
-import (
-	"github.com/gin-gonic/gin"
-)
+import "example/web-service-gin/api"
 
 func main() {
-	router := gin.Default()
+	s := api.NewServer()
 
-	router.GET("/albums", getAlbums)
-	router.GET("/albums/:id", getAlbumByID)
-	router.POST("/albums", postAlbums)
-
-	router.Run("localhost:8080")
+	s.Start()
 }
