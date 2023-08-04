@@ -2,13 +2,14 @@ package api
 
 import (
 	"errors"
+	"example/web-service-gin/types"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
 func (s Server) HandleGetPonto(c *gin.Context) {
-	p := NewPonto()
+	p := types.NewPonto()
 	data := c.Param("data")
 	if data == "" {
 		c.Error(errors.New("parametro <data> é obrigatório"))
@@ -18,7 +19,7 @@ func (s Server) HandleGetPonto(c *gin.Context) {
 }
 
 func (s Server) HandlePostPonto(c *gin.Context) {
-	var p Ponto
+	var p types.Ponto
 	if err := c.BindJSON(&p); err != nil {
 		c.Error(err)
 		return
@@ -28,7 +29,7 @@ func (s Server) HandlePostPonto(c *gin.Context) {
 }
 
 func (s Server) HandlePutPonto(c *gin.Context) {
-	var p Ponto
+	var p types.Ponto
 	if err := c.BindJSON(&p); err != nil {
 		c.Error(err)
 		return
@@ -38,7 +39,7 @@ func (s Server) HandlePutPonto(c *gin.Context) {
 }
 
 func (s Server) HandleDeletePonto(c *gin.Context) {
-	var p Ponto
+	var p types.Ponto
 	if err := c.BindJSON(&p); err != nil {
 		c.Error(err)
 		return

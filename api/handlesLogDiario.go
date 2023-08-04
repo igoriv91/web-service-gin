@@ -1,9 +1,13 @@
 package api
 
-import "github.com/gin-gonic/gin"
+import (
+	"example/web-service-gin/types"
+
+	"github.com/gin-gonic/gin"
+)
 
 func (s Server) HandleGetLogDiarioByDate(c *gin.Context) {
-	l := NewLogDiario()
+	l := types.NewLogDiario()
 	data := c.Param("data")
 
 	l.GetLogDiarioByDate(data)
